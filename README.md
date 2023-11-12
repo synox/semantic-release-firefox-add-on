@@ -7,6 +7,10 @@ CICD](https://github.com/tophat/semantic-release-firefox-add-on/actions/workflow
 
 ## Overview
 
+Fork that fixes https://github.com/tophat/semantic-release-firefox-add-on/issues/418
+
+--- 
+
 <img align="right" width="200" height="200" src="https://user-images.githubusercontent.com/2528959/65039978-65686780-d921-11e9-9d2a-48a5063ccb94.png" alt="Logo">
 
 This package provides a set of [`semantic-release`][semantic-release] plugins for you to easily publish Firefox add ons automatically. Mozilla requires that even self-distributed packages are signed through the add on store. Given a built package, it will write the correct version number into `manifest.json` and upload the dist folder to the add on store. The package will be validated by Mozilla, and if valid, a signed distribution will be returned and downloaded into the artifacts folder.
