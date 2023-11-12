@@ -15,7 +15,7 @@ const publish = async (options) => {
     // If there's an error with the validation, webExt sign will log a link to
     // the console which will lead to the validation page which should contain
     // detailed reasons why the extension was rejected
-    const { extensionId, artifactsDir, channel, sourceDir, targetXpi } =
+    const { artifactsDir, channel, sourceDir, targetXpi } =
         verifyOptions(options, requiredOptions).verified
 
     const { FIREFOX_API_KEY, FIREFOX_SECRET_KEY } = process.env
@@ -41,7 +41,6 @@ const publish = async (options) => {
             apiSecret: FIREFOX_SECRET_KEY,
             artifactsDir,
             channel,
-            id: extensionId,
             sourceDir,
         },
         { signAddon },

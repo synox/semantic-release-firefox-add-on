@@ -9,6 +9,8 @@ CICD](https://github.com/tophat/semantic-release-firefox-add-on/actions/workflow
 
 Fork that fixes https://github.com/tophat/semantic-release-firefox-add-on/issues/418
 
+In this fork, the extensionId has to be defined in the manifest.json instead of this plugin.
+
 --- 
 
 <img align="right" width="200" height="200" src="https://user-images.githubusercontent.com/2528959/65039978-65686780-d921-11e9-9d2a-48a5063ccb94.png" alt="Logo">
@@ -43,7 +45,6 @@ This package export the following plugins:
 Verify the following:
 
 - That environment variables are set for Add On store authentication
-- That an extensionId was specified in the configuration
 - That the source directory is built and that we can locate the manifest.json file within the source directory
 
 ### Environment variables
@@ -54,8 +55,6 @@ Verify the following:
 For more information on the source of these values, see [Mozilla Add On authentication](#mozilla-add-on-authentication)
 
 #### `verifyConditions` parameters
-
-- `extensionId`: **REQUIRED** The extension id of the extension from the Mozilla Add On store. If this is not specified then a new extension will be created each time the release is run. In order to avoid issues arising due to this, the extension must be created in the Add On store first and the extension Id put into the semantic release configuration.
 
 - `targetXpi`: **REQUIRED** The filename of the XPI file to store in the artifacts directory.
 
@@ -80,8 +79,6 @@ This plugin requires some parameters to be set, so be sure to check below and fi
 Creates an unsigned XPI file out of the source directory and uploads it to the Mozilla Add On, using the web-ext sign command. The output from the sign command will be passed through to the console. If the package is validated and signed, it will download the signed XPI file and store it in the artifacts directory under the specified file name. If the package is validated but not signed (including the case where manual review is required), it will store the unsigned XPI file in the artifacts directory.
 
 #### `publish` parameters
-
-- `extensionId`: **REQUIRED** The extension id of the extension from the Mozilla Add On store.
 
 - `targetXpi`: **REQUIRED** The filename of the XPI file to store in the artifacts directory.
 
